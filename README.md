@@ -15,7 +15,8 @@ This is an example of a Python Edgee Component.
 
 ## Setup
 Requirements:
-- Python3 / pip
+- Python3
+- uv
 
 ```shell
 $ make setup
