@@ -11,12 +11,12 @@ help:
 edgee_world:
 	uv sync
 	# generate bindings from wit
-	componentize-py --wit-path wit/  -w data-collection bindings edgee_world
+	uv run componentize-py --wit-path wit/  -w data-collection bindings edgee_world
 
 setup: edgee_world ## setup development environment
 
 build: setup ## build component
-	componentize-py --wit-path wit/ --world data-collection componentize component -o output.wasm
+	uv run componentize-py --wit-path wit/ --world data-collection componentize component -o output.wasm
 
 clean: ## clean build artifacts
 	rm -rf output.wasm
