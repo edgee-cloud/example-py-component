@@ -13,13 +13,10 @@ edgee_world:
 	# generate bindings from wit
 	componentize-py --wit-path wit/  -w data-collection bindings edgee_world
 
-
-output.wasm:
-	componentize-py --wit-path wit/ --world data-collection componentize component -o output.wasm
-
 setup: edgee_world ## setup development environment
 
-build: setup output.wasm ## build component
+build: setup ## build component
+	componentize-py --wit-path wit/ --world data-collection componentize component -o output.wasm
 
 clean: ## clean build artifacts
 	rm -rf output.wasm
