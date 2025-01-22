@@ -12,7 +12,7 @@ class Provider(exports.Provider):
     '''
         The page method should return an EdgeeRequest object that contains the
         information needed to make an HTTP request to the provider's API to
-        send page data, passing the event information formated for the provider's API as well as the credentials
+        send page data, passing the event information formatted for the provider's API as well as the credentials
         needed to authenticate with the provider's API.
     '''
     def page(self, e: provider.Event, cred: List[Tuple[str, str]]) -> provider.EdgeeRequest:
@@ -40,7 +40,7 @@ class Provider(exports.Provider):
     '''
         The track method should return an EdgeeRequest object that contains the
         information needed to make an HTTP request to the provider's API to
-        send track data, passing the event information formated for the provider's API as well as the credentials
+        send track data, passing the event information formatted for the provider's API as well as the credentials
         needed to authenticate with the provider's API.
     '''
     def track(self, e: provider.Event, cred: List[Tuple[str, str]]) -> provider.EdgeeRequest:
@@ -49,7 +49,7 @@ class Provider(exports.Provider):
     '''
         The user method should return an EdgeeRequest object that contains the
         information needed to make an HTTP request to the provider's API to
-        send user data, passing the event information formated for the provider's API as well as the credentials
+        send user data, passing the event information formatted for the provider's API as well as the credentials
         needed to authenticate with the provider's API.
     '''
     def user(self, e: provider.Event, cred: List[Tuple[str, str]]) -> provider.EdgeeRequest:
