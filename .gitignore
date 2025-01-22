@@ -1,0 +1,6 @@
+# build output
+output.wasm
+# world binding
+edgee_world/
+# python
+__pycache__/
