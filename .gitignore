@@ -4,3 +4,5 @@ output.wasm
 edgee_world/
 # python
 __pycache__/
+# deps
+wit/deps/
