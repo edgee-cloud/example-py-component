@@ -24,5 +24,5 @@ clean: ## clean build artifacts
 	rm -rf edgee_world
 	rm -rf __pycache__
 
-test:
+test: setup ## test the component functions
 	python -m unittest dc_component_test.py
