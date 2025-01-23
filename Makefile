@@ -23,3 +23,6 @@ clean: ## clean build artifacts
 	rm -rf dc_component.wasm
 	rm -rf edgee_world
 	rm -rf __pycache__
+
+test:
+	python -m unittest dc_component_test.py

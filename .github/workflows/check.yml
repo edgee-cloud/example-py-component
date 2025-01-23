@@ -26,3 +26,7 @@ jobs:
           make setup
           make build
 
+      - name: Test component
+        run: |
+          make test
+
