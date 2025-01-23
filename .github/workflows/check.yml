@@ -21,6 +21,16 @@ jobs:
         with:
           python-version-file: "pyproject.toml"
 
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Install Cargo Package
+        run: cargo install wit-deps-cli
+
       - name: Build component
         run: |
           make setup
