@@ -9,8 +9,6 @@ help:
 		| sed -e "s/^Makefile://" -e "s///" \
 		| awk 'BEGIN { FS = ":.*?## " }; { printf "\033[36m%-30s\033[0m %s\n", $$1, $$2 }'
 edgee_world:
-	# fetch deps
-	wit-deps
 	# grab python reqs
 	uv sync
 	# generate bindings from wit
