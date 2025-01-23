@@ -1,5 +1,5 @@
 import edgee_world.data_collection.exports as exports
-import edgee_world.data_collection.exports.provider as provider
+import edgee_world.data_collection.exports.data_collection as data_collection
 
 from edgee_world.data_collection.types import *
 
@@ -8,14 +8,14 @@ This is the main class that you will need to implement. It should inherit from
 edgee_world.data_collection.exports.Provider and implement the following methods:
 page, track, user
 '''
-class Provider(exports.Provider):
+class DataCollection(exports.DataCollection):
     '''
         The page method should return an EdgeeRequest object that contains the
         information needed to make an HTTP request to the provider's API to
         send page data, passing the event information formatted for the provider's API as well as the credentials
         needed to authenticate with the provider's API.
     '''
-    def page(self, e: provider.Event, cred: List[Tuple[str, str]]) -> provider.EdgeeRequest:
+    def page(self, e: data_collection.Event, cred: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
         '''
         cred is a list of tuple, which contains each key and secret for the provider
         for example, if your component is set to use
@@ -43,7 +43,7 @@ class Provider(exports.Provider):
         send track data, passing the event information formatted for the provider's API as well as the credentials
         needed to authenticate with the provider's API.
     '''
-    def track(self, e: provider.Event, cred: List[Tuple[str, str]]) -> provider.EdgeeRequest:
+    def track(self, e: data_collection.Event, cred: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
         raise NotImplementedError("track is not implemented")
 
     '''
@@ -52,5 +52,5 @@ class Provider(exports.Provider):
         send user data, passing the event information formatted for the provider's API as well as the credentials
         needed to authenticate with the provider's API.
     '''
-    def user(self, e: provider.Event, cred: List[Tuple[str, str]]) -> provider.EdgeeRequest:
+    def user(self, e: data_collection.Event, cred: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
         raise NotImplementedError("user is not implemented")
