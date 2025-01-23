@@ -14,14 +14,14 @@ edgee_world:
 	# grab python reqs
 	uv sync
 	# generate bindings from wit
-	uv run componentize-py --wit-path wit/  -w data-collection bindings edgee_world
+	uv run componentize-py --wit-path wit/ bindings edgee_world
 
 setup: edgee_world ## setup development environment
 
 build: setup ## build component
-	uv run componentize-py --wit-path wit/ --world data-collection componentize component -o output.wasm
+	uv run componentize-py --wit-path wit/ --world data-collection componentize dc-component -o dc-component.wasm
 
 clean: ## clean build artifacts
-	rm -rf output.wasm
+	rm -rf dc-component.wasm
 	rm -rf edgee_world
 	rm -rf __pycache__
