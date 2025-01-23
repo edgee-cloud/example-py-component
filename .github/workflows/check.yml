@@ -21,7 +21,7 @@ jobs:
         with:
           python-version-file: "pyproject.toml"
 
-      - name: Test
+      - name: Build component
         run: |
           make setup
           make build
