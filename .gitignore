@@ -1,5 +1,5 @@
 # build output
-output.wasm
+dc-component.wasm
 # world binding
 edgee_world/
 # python
