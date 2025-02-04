@@ -12,20 +12,20 @@ class DataCollection(exports.DataCollection):
     '''
         The page method should return an EdgeeRequest object that contains the
         information needed to make an HTTP request to the provider's API to
-        send page data, passing the event information formatted for the provider's API as well as the credentials
+        send page data, passing the event information formatted for the provider's API as well as the settings
         needed to authenticate with the provider's API.
     '''
-    def page(self, e: data_collection.Event, cred: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
+    def page(self, e: data_collection.Event, settings: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
         '''
-        cred is a list of tuple, which contains each key and secret for the provider
+        settings is a list of tuple, which contains each key and secret for the provider
         for example, if your component is set to use
             [[components.data_collection]]
             name = "my_component"
             component = "outpout.wasm"
-            credentials.test_project_id = "123456789"
-            credentials.test_write_key = "abcdefg"
+            settings.test_project_id = "123456789"
+            settings.test_write_key = "abcdefg"
 
-            cred will be [("test_project_id", "123456789"), ("test_write_key", "abcdefg")]
+            settings will be [("test_project_id", "123456789"), ("test_write_key", "abcdefg")]
         '''
         '''
             the function should return the following:
@@ -33,6 +33,7 @@ class DataCollection(exports.DataCollection):
                 method=provider.HttpMethod.GET,
                 url="https://yourwebsite.com",
                 headers={},
+                forward_client_headers=true,
                 body="")
         '''
         raise NotImplementedError("page is not implemented")
@@ -40,17 +41,17 @@ class DataCollection(exports.DataCollection):
     '''
         The track method should return an EdgeeRequest object that contains the
         information needed to make an HTTP request to the provider's API to
-        send track data, passing the event information formatted for the provider's API as well as the credentials
+        send track data, passing the event information formatted for the provider's API as well as the settings
         needed to authenticate with the provider's API.
     '''
-    def track(self, e: data_collection.Event, cred: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
+    def track(self, e: data_collection.Event, settings: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
         raise NotImplementedError("track is not implemented")
 
     '''
         The user method should return an EdgeeRequest object that contains the
         information needed to make an HTTP request to the provider's API to
-        send user data, passing the event information formatted for the provider's API as well as the credentials
+        send user data, passing the event information formatted for the provider's API as well as the settings
         needed to authenticate with the provider's API.
     '''
-    def user(self, e: data_collection.Event, cred: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
+    def user(self, e: data_collection.Event, settings: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
         raise NotImplementedError("user is not implemented")
