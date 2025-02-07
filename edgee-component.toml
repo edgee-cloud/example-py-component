@@ -1,0 +1,11 @@
+manifest_version = 1
+
+[package]
+name = "example-py-component"
+version = "1.0.0"
+
+wit-world-version = "0.3.0"
+
+[package.build]
+command = "uv sync && uv run componentize-py --wit-path wit/ bindings edgee_world && uv run componentize-py --wit-path wit/ --world data-collection componentize dc_component -o dc_component.wasm"
+output_path = "./dc-component.wasm"
