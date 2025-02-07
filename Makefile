@@ -18,6 +18,9 @@ setup: edgee_world ## setup development environment
 
 build: 
 	edgee components build
+
+build-no-edgee: setup ## build component
+	uv run componentize-py --wit-path wit/ --world data-collection componentize dc_component -o dc_component.wasm
 	
 clean: ## clean build artifacts
 	rm -rf dc_component.wasm
