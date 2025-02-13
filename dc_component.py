@@ -17,15 +17,17 @@ class DataCollection(exports.DataCollection):
     '''
     def page(self, e: data_collection.Event, settings: List[Tuple[str, str]]) -> data_collection.EdgeeRequest:
         '''
-        settings is a list of tuple, which contains each key and secret for the provider
-        for example, if your component is set to use
-            [[components.data_collection]]
-            name = "my_component"
-            component = "outpout.wasm"
-            settings.test_project_id = "123456789"
-            settings.test_write_key = "abcdefg"
+        settings is a list of tuple, which contains each key and value for the provider
+        for example, if your component define this setting:
 
-            settings will be [("test_project_id", "123456789"), ("test_write_key", "abcdefg")]
+            [component.settings.example]
+            title = "Example Config Field"
+            type = "string"
+
+        settings will be [("example", "value")], so you can access its value as follows:
+
+            example_value = dict(settings)['example']
+
         '''
         '''
             the function should return the following:
