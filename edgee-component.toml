@@ -1,6 +1,6 @@
 manifest_version = 1
 
-[package]
+[component]
 name = "example-py-component"
 version = "1.0.0"
 category = "data-collection"
@@ -10,6 +10,10 @@ documentation = "https://github.com/edgee-cloud/example-py-component"
 repository = "https://github.com/edgee-cloud/example-py-component"
 wit-world-version = "0.4.0"
 
-[package.build]
+[component.build]
 command = "uv sync && uv run componentize-py --wit-path wit/ bindings edgee_world && uv run componentize-py --wit-path wit/ --world data-collection componentize dc_component -o dc_component.wasm"
 output_path = "./dc_component.wasm"
+
+[component.settings.example]
+title = "Example Config Field"
+type = "string"
