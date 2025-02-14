@@ -16,7 +16,7 @@ edgee_world:
 
 setup: edgee_world ## setup development environment
 
-build: 
+build: setup
 	edgee components build
 
 build-no-edgee: setup ## build component

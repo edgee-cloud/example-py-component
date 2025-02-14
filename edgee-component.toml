@@ -11,7 +11,7 @@ repository = "https://github.com/edgee-cloud/example-py-component"
 wit-world-version = "0.4.0"
 
 [component.build]
-command = "uv sync && uv run componentize-py --wit-path wit/ bindings edgee_world && uv run componentize-py --wit-path wit/ --world data-collection componentize dc_component -o dc_component.wasm"
+command = "uv run componentize-py --wit-path wit/ --world data-collection componentize dc_component -o dc_component.wasm"
 output_path = "./dc_component.wasm"
 
 [component.settings.example]
