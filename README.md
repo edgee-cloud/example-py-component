@@ -15,7 +15,7 @@ This is an example of a Python Edgee Component.
 
 ## Setup
 Requirements:
-- [edgee-cli] (https://github.com/edgee-cloud/edgee)
+- [edgee-cli](https://github.com/edgee-cloud/edgee)
 - Python3
 - uv
 
