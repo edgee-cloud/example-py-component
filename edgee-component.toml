@@ -8,7 +8,7 @@ subcategory = "analytics"
 description = "Example Python component for data collection"
 documentation = "https://github.com/edgee-cloud/example-py-component"
 repository = "https://github.com/edgee-cloud/example-py-component"
-wit-world-version = "0.4.0"
+wit-world-version = "0.5.0"
 
 [component.build]
 command = "uv run componentize-py --wit-path wit/ --world data-collection componentize dc_component -o dc_component.wasm"
