@@ -12,7 +12,7 @@ edgee_world:
 	# grab python reqs
 	uv sync
 	# generate bindings from wit
-	uv run componentize-py --wit-path wit/ bindings edgee_world
+	uv run componentize-py --wit-path .edgee/wit/ bindings edgee_world
 
 setup: edgee_world ## setup development environment
 

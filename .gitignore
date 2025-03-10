@@ -1,3 +1,5 @@
+# deps
+.edgee/
 # build output
 dc_component.wasm
 # world binding
