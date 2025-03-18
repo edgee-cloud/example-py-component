@@ -9,7 +9,7 @@ description = "Example Python component for data collection"
 documentation = "https://github.com/edgee-cloud/example-py-component"
 repository = "https://github.com/edgee-cloud/example-py-component"
 language = "Python"
-wit-version = "0.5.0"
+wit-version = "1.0.0"
 
 [component.build]
 command = "uv sync && rm -rf edgee_world && uv run componentize-py --wit-path .edgee/wit/ bindings edgee_world && uv run componentize-py --wit-path .edgee/wit/ --world data-collection componentize dc_component -o dc_component.wasm"
