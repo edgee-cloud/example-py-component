@@ -26,7 +26,6 @@ jobs:
 
             - name: Build component
               run: |
-                  make setup
                   edgee components build
 
             - name: Verify .wasm file exists
