@@ -31,11 +31,11 @@ class DataCollection(exports.DataCollection):
         '''
         '''
             the function should return the following:
-            return provider.EdgeeRequest(
-                method=provider.HttpMethod.GET,
+            return data_collection.EdgeeRequest(
+                method=data_collection.HttpMethod.GET,
                 url="https://yourwebsite.com",
-                headers={},
-                forward_client_headers=true,
+                headers=[],
+                forward_client_headers=True,
                 body="")
         '''
         raise NotImplementedError("page is not implemented")
