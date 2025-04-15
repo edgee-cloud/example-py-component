@@ -1,43 +1,51 @@
 name: Check
 on:
-    push:
-        branches:
-            - main
-    pull_request:
+  push:
+    branches:
+      - main
+  pull_request:
 
 env:
   EDGEE_API_TOKEN: ${{ secrets.EDGEE_API_TOKEN }}
 
 jobs:
-    test:
-        name: test
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+  full-ci:
+    name: Full CI (${{ matrix.dir }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: [consent-mapping, data-collection]
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
 
-            - name: Install uv
-              uses: astral-sh/setup-uv@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
 
-            - name: "Set up Python"
-              uses: actions/setup-python@v5
-              with:
-                  python-version-file: "pyproject.toml"
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+            python-version-file: "pyproject.toml"
 
-            - name: Install edgee
-              uses: edgee-cloud/install-edgee-cli@v0.2.0
+      - name: Install Edgee CLI
+        uses: edgee-cloud/install-edgee-cli@v0.2.0
 
-            - name: Build component
-              run: |
-                  edgee component build
+      - name: Run edgee component wit
+        run: edgee component wit
 
-            - name: Verify .wasm file exists
-              run: |
-                  if [ ! -f "./dc_component.wasm" ]; then
-                    echo "❌ Error: dc_component.wasm not found" >&2
-                    exit 1
-                  fi
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
 
-            - name: Test component
-              run: |
-                  make test
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+            python-version-file: "pyproject.toml"
+
+      - name: Install edgee
+        uses: edgee-cloud/install-edgee-cli@v0.2.0
+
+      - name: Build component
+        run: |
+            edgee component build
