@@ -1,0 +1,8 @@
+# deps
+.edgee/
+# build output
+cmp_component.wasm
+# world binding
+edgee_world/
+# python
+__pycache__/
