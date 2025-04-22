@@ -27,24 +27,13 @@ jobs:
       - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
-            python-version-file: "pyproject.toml"
+            python-version-file: "${{ matrix.dir }}/pyproject.toml"
 
       - name: Install Edgee CLI
         uses: edgee-cloud/install-edgee-cli@v0.2.0
 
       - name: Run edgee component wit
         run: edgee component wit
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
-        with:
-            python-version-file: "pyproject.toml"
-
-      - name: Install edgee
-        uses: edgee-cloud/install-edgee-cli@v0.2.0
 
       - name: Build component
         run: |
