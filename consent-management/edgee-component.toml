@@ -12,8 +12,8 @@ language = "Python"
 wit-version = "1.0.0"
 
 [component.build]
-command = "uv sync && rm -rf edgee_world && uv run componentize-py --wit-path .edgee/wit/ bindings edgee_world && uv run componentize-py --wit-path .edgee/wit/ --world consent-management componentize component -o cmp_component.wasm"
-output_path = "./cmp_component.wasm"
+command = "uv sync && rm -rf edgee_world && uv run componentize-py --wit-path .edgee/wit/ bindings edgee_world && uv run componentize-py --wit-path .edgee/wit/ --world consent-management componentize component -o component.wasm"
+output_path = "./component.wasm"
 
 [component.settings.example]
 title = "Example Config Field"

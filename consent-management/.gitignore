@@ -1,7 +1,7 @@
 # deps
 .edgee/
 # build output
-cmp_component.wasm
+component.wasm
 # world binding
 edgee_world/
 # python
