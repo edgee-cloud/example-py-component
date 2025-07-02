@@ -4,7 +4,8 @@ version = "0.1.0"
 description = "Edgee python3 example for implementation of a data collection component"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+]
 
 [dependency-groups]
 dev = [
