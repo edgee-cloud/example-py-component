@@ -1,5 +1,5 @@
 from edge_function import exports
-from edge_function.types import (Ok)
+from edge_function.types import Ok
 from edge_function.imports.types import (
     IncomingRequest, ResponseOutparam,
     OutgoingResponse, Fields, OutgoingBody
