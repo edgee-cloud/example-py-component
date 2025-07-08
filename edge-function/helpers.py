@@ -1,4 +1,4 @@
-from edge_function.types import (Err)
+from edge_function.types import Err
 from edge_function.imports.types import (
     IncomingRequest
 )
