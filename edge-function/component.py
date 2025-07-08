@@ -5,6 +5,8 @@ from edge_function.imports.types import (
     OutgoingResponse, Fields, OutgoingBody
 )
 
+from helpers import get_headers, get_settings, get_body
+
 index = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +64,10 @@ index = '''
 
 class IncomingHandler(exports.IncomingHandler):
     def handle(self, request: IncomingRequest, response_out: ResponseOutparam):
+        incoming_headers = get_headers(request)
+        settings = get_settings(incoming_headers)
+        body = get_body(request)
+
         outgoingResponse = OutgoingResponse(Fields.from_list([]))
         outgoingResponse.set_status_code(200)
         outgoingBody = outgoingResponse.body()
