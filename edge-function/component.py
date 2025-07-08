@@ -1,13 +1,11 @@
 from edge_function import exports
-from edge_function.types import (Ok, Err)
+from edge_function.types import (Ok)
 from edge_function.imports.types import (
     IncomingRequest, ResponseOutparam,
     OutgoingResponse, Fields, OutgoingBody
 )
 
-from edge_function.imports.streams import StreamError_Closed
-
-import json
+from helpers import get_headers, get_settings, get_body
 
 index = '''
 <!DOCTYPE html>
@@ -63,35 +61,6 @@ index = '''
 </body>
 </html>
 '''
-
-def get_headers(request: IncomingRequest) -> dict:
-    fields = request.headers()
-    headers = dict(fields.entries())
-    return headers
-
-def get_settings(headers: dict) -> dict:
-    # Extract and return settings from headers
-    settings = headers.get("x-edgee-component-settings", "{}")
-    try:
-        return json.loads(settings)
-    except json.JSONDecodeError:
-        print("Invalid JSON in x-edgee-component-settings")
-        return {}
-
-def get_body(request: IncomingRequest) -> str:
-    body = request.consume()
-    stream = body.stream()
-    output = bytearray()
-    while True:
-        try:
-            chunk = stream.read(1024)
-            if not chunk:
-                break
-            output += bytearray(chunk)
-        except Err as e:
-                if isinstance(e.value, StreamError_Closed):
-                    break
-    return output.decode("utf-8")
 
 class IncomingHandler(exports.IncomingHandler):
     def handle(self, request: IncomingRequest, response_out: ResponseOutparam):
