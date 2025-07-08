@@ -64,8 +64,8 @@ index = '''
 
 class IncomingHandler(exports.IncomingHandler):
     def handle(self, request: IncomingRequest, response_out: ResponseOutparam):
-        incomingHeaders = get_headers(request)
-        settings = get_settings(incomingHeaders)
+        incoming_headers = get_headers(request)
+        settings = get_settings(incoming_headers)
         body = get_body(request)
 
         outgoingResponse = OutgoingResponse(Fields.from_list([]))
